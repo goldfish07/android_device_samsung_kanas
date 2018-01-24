@@ -1,0 +1,62 @@
+#
+# system.prop for kanas
+#
+
+# HW
+ro.product.hardware=KANAS3G_VE_V1.0.0
+
+# Graphics
+ro.sf.lcd_density=240
+ro.sf.lcd_width=52
+ro.sf.lcd_height=87
+ro.opengles.version=131072
+debug.hwui.render_dirty_regions=false
+
+# DRM
+drm.service.enabled=1
+
+# Strict Mode
+persist.sys.strictmode.disable=1
+
+# RIL
+persist.modem.w.enable=1
+ro.modem.w.dev=/dev/cpw
+ro.modem.w.tty=/dev/stty_w
+ro.modem.w.eth=rmnet
+ro.modem.w.snd=2
+ro.modem.w.diag=/dev/slog_w
+ro.modem.w.loop=/dev/spipe_w0
+ro.modem.w.nv=/dev/spipe_w1
+ro.modem.w.assert=/dev/spipe_w2
+ro.modem.w.vbc=/dev/spipe_w6
+ro.modem.w.id=0
+ro.modem.w.count=2
+ro.com.android.dataroaming=false
+ro.msms.phone_count=2
+persist.msms.phone_count=2
+persist.msmslt=0
+persist.sys.modem.diag=,gser
+sys.usb.gser.count=2
+ro.ril.hsxpa=1
+ro.ril.gprsclass=10
+persist.radio.multisim.config=dsds
+ro.telephony.ril_class=kanasRIL
+ro.telephony.ril.config=setPrefNwTypeOnUnsolConnected
+ro.ril.telephony.mqanelements=6
+
+#Multiuser
+fw.show_multiuserui=1
+fw.max_users=5
+
+
+# Low memory device
+ro.config.low_ram=true
+persist.sys.force_highendgfx=true
+config.disable_atlas=true
+ro.config.max_starting_bg=8
+ro.sys.fw.bg_apps_limit=16
+
+# zRAM
+ro.config.zram.compressor=lz4
+ro.config.zram.disksize=192M
+ro.config.swappiness=100
