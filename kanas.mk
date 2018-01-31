@@ -27,11 +27,6 @@ $(call inherit-product, device/samsung/sprd-common/common.mk)
 # Inherit from vendor
 $(call inherit-product, vendor/samsung/kanas/kanas-vendor.mk)
 
-# Dalvik heap config
-$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
-
-# WiFi BCMDHD
-$(call inherit-product, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += device/samsung/kanas/overlay
@@ -229,3 +224,17 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 	ro.debuggable=1 \
 	persist.sys.root_access=1 \
 	persist.service.adb.enable=1
+	
+# Dalvik heap config
+$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
+
+# WiFi BCMDHD
+$(call inherit-product, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
+
+
+# Set those variables here to overwrite the inherited values.
+PRODUCT_NAME := full_core33g
+PRODUCT_DEVICE := core33g
+PRODUCT_BRAND := samsung
+PRODUCT_MANUFACTURER := samsung
+PRODUCT_MODEL := SM-G355H
