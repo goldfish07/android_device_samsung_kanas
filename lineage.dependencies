@@ -4,4 +4,10 @@
         "repository": "judyann63/android_external_stlport",
         "target_path": "external/stlport"
     }
+    
+    {
+    "remote": "github"
+    "repository": "judyann63/android_hardware_samsung",
+    "target_path": "hardware/samsung"
+    }
 ]
