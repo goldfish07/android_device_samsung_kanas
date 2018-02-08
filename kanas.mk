@@ -144,7 +144,7 @@ PRODUCT_COPY_FILES += \
 
 # Common libraries
 PRODUCT_PACKAGES += \
-	libmemoryheapion_sprd
+	libmemoryheapion
 
 # Shim libraries
 PRODUCT_PACKAGES += \
