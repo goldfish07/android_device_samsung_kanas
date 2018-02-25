@@ -15,23 +15,18 @@
 # limitations under the License.
 #
 
-# Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
+LOCAL_PATH := device/samsung/kanas
 
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-# Inherit from sprd-common device configuration
-$(call inherit-product, device/samsung/sprd-common/common.mk)
-
 # Inherit from vendor
 $(call inherit-product, vendor/samsung/kanas/kanas-vendor.mk)
 
-# Dalvik heap config
-$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# WiFi BCMDHD
-$(call inherit-product, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += device/samsung/kanas/overlay
@@ -113,29 +108,48 @@ PRODUCT_PACKAGES += \
 # Codecs
 PRODUCT_PACKAGES += \
 	libstagefrighthw \
-	libstagefright_sprd_soft_mpeg4dec \
-	libstagefright_sprd_soft_h264dec \
 	libstagefright_sprd_mpeg4dec \
+	libstagefright_sprd_soft_mpeg4dec \
 	libstagefright_sprd_mpeg4enc \
 	libstagefright_sprd_h264dec \
+	libstagefright_sprd_soft_h264dec \
 	libstagefright_sprd_h264enc \
 	libstagefright_sprd_vpxdec \
 	libstagefright_sprd_aacdec \
 	libstagefright_sprd_mp3dec \
+	libomx_aacdec_sprd.so \
+	libomx_avcdec_hw_sprd.so \
+	libomx_avcdec_sw_sprd.so \
+	libomx_avcenc_hw_sprd.so \
+	libomx_m4vh263dec_hw_sprd.so \
+	libomx_m4vh263dec_sw_sprd.so \
+	libomx_m4vh263enc_hw_sprd.so \
+	libomx_mp3dec_sprd.so \
+	libomx_vpxdec_hw_sprd.so
 
 # Lights
 PRODUCT_PACKAGES += \
 	lights.sc8830
 
+# Device-specific packages
+PRODUCT_PACKAGES += \
+	SamsungServiceMode
+
 # Bluetooth
 PRODUCT_PACKAGES += \
 	bluetooth.default \
+	audio.a2dp.default \
+        libbluetooth_jni \
 
 # Audio
 PRODUCT_PACKAGES += \
 	audio.primary.sc8830 \
+	audio_policy.sc8830 \
+	audio.r_submix.default \
+	audio.usb.default \
 	libaudio-resampler \
 	libatchannel_wrapper \
+	libtinyalsa
 
 AUDIO_CONFIGS := \
 	device/samsung/kanas/configs/audio/audio_policy.conf \
@@ -147,9 +161,37 @@ AUDIO_CONFIGS := \
 PRODUCT_COPY_FILES += \
 	$(foreach f,$(AUDIO_CONFIGS),$(f):system/etc/$(notdir $(f))) \
 
+# Charger
+PRODUCT_PACKAGES += \
+	charger \
+	charger_res_images
+
+# Permissions
+PERMISSION_XML_FILES := \
+	$(LOCAL_PATH)/permissions/platform.xml \
+	frameworks/native/data/etc/handheld_core_hardware.xml \
+	frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml \
+	frameworks/native/data/etc/android.hardware.camera.front.xml \
+	frameworks/native/data/etc/android.hardware.camera.xml \
+	frameworks/native/data/etc/android.hardware.bluetooth_le.xml \
+	frameworks/native/data/etc/android.hardware.location.gps.xml \
+	frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml \
+	frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml \
+	frameworks/native/data/etc/android.hardware.touchscreen.xml \
+	frameworks/native/data/etc/android.hardware.telephony.gsm.xml \
+	frameworks/native/data/etc/android.hardware.usb.accessory.xml \
+	frameworks/native/data/etc/android.software.sip.voip.xml \
+	frameworks/native/data/etc/android.software.sip.xml \
+	frameworks/native/data/etc/android.hardware.wifi.xml \
+	frameworks/native/data/etc/android.hardware.wifi.direct.xml
+
+PRODUCT_COPY_FILES += \
+	$(foreach f,$(PERMISSION_XML_FILES),$(f):system/etc/permissions/$(notdir $(f)))
+
 # Common libraries
 PRODUCT_PACKAGES += \
-	libmemoryheapion_sprd
+	libmemoryheapion \
+        libstlport \
 
 # Shim libraries
 PRODUCT_PACKAGES += \
@@ -172,6 +214,13 @@ PRODUCT_COPY_FILES += \
 	$(foreach f,$(NVITEM_CONFIGS),$(f):system/etc/$(notdir $(f)))
 
 # Wifi
+# Wifi
+PRODUCT_PACKAGES += \
+	libnetcmdiface \
+	dhcpcd.conf \
+	wpa_supplicant \
+	hostapd
+
 WIFI_CONFIGS := \
 	device/samsung/kanas/configs/wifi/wpa_supplicant.conf \
 	device/samsung/kanas/configs/wifi/nvram_net.txt \
@@ -229,3 +278,15 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 	ro.debuggable=1 \
 	persist.sys.root_access=1 \
 	persist.service.adb.enable=1
+
+# Dalvik heap config
+$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
+
+# WiFi BCMDHD
+$(call inherit-product, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
+
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+PRODUCT_NAME := full_kanas
+PRODUCT_DEVICE := kanas
+PRODUCT_BRAND := samsung
+PRODUCT_MODEL := SM-G355H

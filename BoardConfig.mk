@@ -12,9 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit from SPRD common configs
--include device/samsung/sprd-common/BoardConfigCommon.mk
-
 # Inherit from the proprietary version
 -include vendor/samsung/kanas/BoardConfigVendor.mk
 
@@ -33,6 +30,9 @@ BOARD_VENDOR := samsung
 
 SOC_SCX35 := true
 
+TARGET_GLOBAL_CFLAGS += -mtune=cortex-a7 -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a7 -mfpu=neon -mfloat-abi=softfp
+
 # Config u-boot
 TARGET_NO_BOOTLOADER := true
 
@@ -50,6 +50,8 @@ BOARD_RIL_CLASS += ../../../device/samsung/kanas/ril
 COMMON_GLOBAL_CFLAGS += -DDISABLE_ASHMEM_TRACKING
 
 # Bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/kanas/bluetooth
 BOARD_BLUEDROID_VENDOR_CONF := device/samsung/kanas/bluetooth/libbt_vndcfg.txt
 
@@ -74,26 +76,35 @@ WIFI_BAND := 802_11_ABG
 BOARD_HAVE_SAMSUNG_WIFI := true
 
 # Graphics
+USE_OPENGL_RENDERER := true
 HWUI_COMPILE_FOR_PERF := true
 TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
 
+# RIL
+BOARD_RIL_CLASS := ../../../device/samsung/kanas/ril
+
 # HWComposer
 USE_SPRD_HWCOMPOSER := true
+BOARD_USES_SPRD_HARDWARE := true
 USE_SPRD_DITHER := true
 USE_OVERLAY_COMPOSER_GPU := true
+TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 
 # Resolution
 TARGET_SCREEN_HEIGHT := 800
 TARGET_SCREEN_WIDTH := 480
 
 # Audio
+BOARD_USES_TINYALSA_AUDIO := true
+TARGET_TINY_ALSA_IGNORE_SILENCE_SIZE := true
 BOARD_USE_LIBATCHANNEL_WRAPPER := true
+USE_LEGACY_AUDIO_POLICY := 1
 
 # Media
 COMMON_GLOBAL_CFLAGS += -DBOARD_CANT_REALLOCATE_OMX_BUFFERS
 
 # Board specific features
-#BOARD_USE_SAMSUNG_COLORFORMAT := true
+BOARD_USE_SAMSUNG_COLORFORMAT := true
 COMMON_GLOBAL_CFLAGS += -DSPRD_HARDWARE
 
 # Healthd
@@ -110,7 +121,7 @@ BACKLIGHT_PATH := /sys/class/backlight/panel/brightness
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8
 BOARD_KERNEL_PAGESIZE := 2048
-TARGET_KERNEL_CONFIG := kanas_defconfig
+TARGET_KERNEL_CONFIG := lineage_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/kanas
 
 # Init
