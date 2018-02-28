@@ -1,0 +1,182 @@
+# Un-categorized
+bin/engpc
+bin/at_distributor 
+bin/ext_data.sh 
+bin/ext_kill.sh 
+bin/ext_symlink.sh  
+bin/lpm 
+bin/modemd 
+bin/nvitemd 
+bin/phoneserver 
+bin/refnotify 
+bin/rild
+
+
+# GPS
+etc/gps.conf
+lib/libsprd_agps_agent.so
+
+# Graphics rendering
+lib/libboost.so
+lib/libMali.so 
+lib/egl/libEGL_mali.so 
+lib/egl/libGLESv1_CM_mali.so 
+lib/egl/libGLESv2_mali.so
+
+
+# Audio
+etc/audio_hw.xml
+etc/audio_para
+etc/codec_pga.xml
+etc/tiny_hw.xml
+lib/libfactoryutil.so
+lib/libomission_avoidance.so
+lib/libatchannel.so
+vendor/firmware/vbc_eq
+
+# WiFi
+bin/macloader
+etc/wifi/bcmdhd_apsta.bin 
+etc/wifi/bcmdhd_sta.bin 
+etc/wifi/bcmdhd_mfg.bin 
+etc/wifi/nvram_net.txt 
+etc/wifi/nvram_mfg.txt
+
+# Bluetooth
+vendor/lib/libbt-vendor.so
+
+
+# RIL
+bin/rild
+bin/modemd
+bin/nvitemd
+bin/phoneserver
+bin/ext_data.sh
+bin/ext_kill.sh
+bin/ext_symlink.sh
+bin/prepare_param.sh
+lib/libril.so
+lib/libreference-ril_sp.so
+lib/libsecril-client.so
+lib/libsecnativefeature.so
+
+# Camera
+lib/libisp.so
+lib/libmorpho_easy_hdr.so
+
+
+# Codecs
+lib/libmorpho_easy_hdr.so 
+lib/libomx_aacdec_sprd.so 
+lib/libomx_avcdec_hw_sprd.so 
+lib/libomx_avcdec_sw_sprd.so 
+lib/libomx_avcenc_hw_sprd.so 
+lib/libomx_m4vh263dec_hw_sprd.so 
+lib/libomx_m4vh263dec_sw_sprd.so 
+lib/libomx_m4vh263enc_hw_sprd.so 
+lib/libomx_mp3dec_sprd.so 
+lib/libomx_vpxdec_hw_sprd.so
+
+
+# HAL
+lib/hw/camera.sc8830.so
+lib/hw/gralloc.sc8830.so
+lib/hw/hwcomposer.sc8830.so
+lib/hw/sensors.sc8830.so
+lib/hw/sprd_gsp.sc8830.so
+
+#imposta
+
+# bin
+bin/at_distributor
+bin/mfgloader
+bin/modemd
+bin/ext_symlink.sh
+bin/ext_data.sh
+bin/ext_kill.sh
+bin/inputfreq.sh
+bin/recoveryfreq.sh
+bin/ddexe
+bin/connfwexe
+bin/wlandutservice
+bin/rild
+bin/smdexe
+bin/macloader
+
+# etc
+etc/connectivity_calibration.ini
+etc/connectivity_configure.ini
+etc/feature_default.xml
+etc/floating_feature.xml
+etc/nwk_info.xml
+etc/purenandpackages_pref.txt
+etc/purenandpackages.txt
+etc/spn-conf.xml
+
+
+# Firmware
+vendor/firmware/BCM4330B1_002.001.003.1025.1303.hcd 
+
+#egl
+lib/egl/libGLES_mali.so
+
+# hw
+lib/hw/camera2.sc8830.so 
+lib/hw/camera.sc8830.so 
+lib/hw/nfc_nci.sc8830.so
+lib/hw/power.sc8830.so
+lib/hw/sensors.sc8830.so
+lib/hw/gps.default.so
+lib/hw/gralloc.sc8830.so
+lib/hw/hwcomposer.sc8830.so
+lib/hw/sprd_gsp.sc8830.so
+lib/hw/lights.sc8830.so
+lib/hw/audio.primary.sc8830.so
+lib/hw/audio_policy.sc8830.so
+
+# lib
+lib/libatparser.so
+lib/libcordon.so
+lib/libsecnativefeature.so
+lib/libsecril-client.so
+lib/libisp.so 
+lib/libreference-ril_sp.so 
+lib/librilutils.so 
+lib/libsecnativefeature.so 
+lib/libQmageDecoder.so 
+lib/libwvm.so 
+lib/libvariablespeed.so
+lib/libvtmanager.so
+lib/libvtstack.so
+lib/libmorpho_easy_hdr.so
+lib/libril.so
+lib/libreference-ril.so
+
+# Audio
+lib/libaudiosa.so
+lib/lib_Samsung_Resampler.so
+lib/lib_SoundAlive_SRC192_ver205.so
+lib/lib_SoundAlive_ver118t.so
+lib/libSoundAlive_VSP_ver315b_arm.so
+lib/lib_soundaliveresampler.so
+lib/libsamsungRecord.so
+lib/libsamsungeffect.so
+lib/libsamsungearcare.so
+lib/libsamsungpowersound.so
+lib/libsamsungSoundbooster.so
+lib/libsec_devenc.so
+lib/libsoundalive.so
+lib/libsoundspeed.so
+
+#bt
+lib/libbt-codec_aptx.so
+lib/libbt-aptx-4.0.3.so
+
+# vendor
+vendor/media/LMspeed_508.emd
+vendor/media/PFFprec_600.emd
+ 
+ 
+
+ 
+
