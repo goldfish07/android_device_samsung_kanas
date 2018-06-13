@@ -117,14 +117,11 @@ etc/spn-conf.xml
 # Firmware
 vendor/firmware/BCM4330B1_002.001.003.1025.1303.hcd 
 
-#egl
-lib/egl/libGLES_mali.so
+
 
 # hw
 lib/hw/camera2.sc8830.so 
 lib/hw/camera.sc8830.so 
-lib/hw/nfc_nci.sc8830.so
-lib/hw/power.sc8830.so
 lib/hw/sensors.sc8830.so
 lib/hw/gps.default.so
 lib/hw/gralloc.sc8830.so
