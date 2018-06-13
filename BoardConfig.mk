@@ -17,8 +17,9 @@
 
 # Platform
 TARGET_ARCH := arm
+TARGET_DEVICE := kanas
 TARGET_BOARD_PLATFORM := sc8830
-TARGET_BOARD_PLATFORM_GPU := mali-400 MP
+TARGET_BOARD_PLATFORM_GPU := mali-400MP
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
@@ -32,7 +33,7 @@ BOARD_VENDOR := samsung
 TARGET_GLOBAL_CFLAGS += -mtune=cortex-a7 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a7 -mfpu=neon -mfloat-abi=softfp
 
-# Config u-boot
+# Partition
 TARGET_NO_BOOTLOADER := true
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
@@ -47,23 +48,15 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 
 # Audio
 BOARD_USES_SS_VOIP := true
-BOARD_USES_TINYALSA_AUDIO := true
 TARGET_TINY_ALSA_IGNORE_SILENCE_SIZE := true
 BOARD_USE_LIBATCHANNEL_WRAPPER := true
 USE_LEGACY_AUDIO_POLICY := 1
 
 # Graphics
 USE_OPENGL_RENDERER := true
-USE_OVERLAY_COMPOSER_GPU := true
 HWUI_COMPILE_FOR_PERF := true
 TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
 
-# HWComposer
-DEVICE_WITH_GSP := true
-USE_SPRD_HWCOMPOSER := true
-BOARD_USES_SPRD_HARDWARE := true
-USE_SPRD_DITHER := true
-TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 
 # RIL
 BOARD_RIL_CLASS += ../../../device/samsung/kanas/ril
@@ -74,9 +67,6 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/kanas/bluetooth
 BOARD_BLUEDROID_VENDOR_CONF := device/samsung/kanas/bluetooth/libbt_vndcfg.txt
-
-# FM
-BOARD_HAVE_FMRADIO_BCM := true
 
 # Wifi
 BOARD_WLAN_DEVICE := bcmdhd
